@@ -36,20 +36,19 @@ class FavouriteCalculator:
 
         return favourites_map
 
-    def calculate_favourite_colour(self, user_map, favourites_map):
+    def calculate_favourite_colour(self):
         favourite_colour = None
         max_votes = -1
 
-        for colour, user_ids in favourites_map.items():
+        for colour, user_ids in self.favourite_choices.items():
             if len(user_ids) > max_votes:
                 max_votes = len(user_ids)
                 favourite_colour = colour
 
         user_list = []
-        for user_id in favourites_map[favourite_colour]:
-            if user_id not in user_map:
+        for user_id in self.favourite_choices[favourite_colour]:
+            if user_id not in self.users:
                 print(f"User id {user_id} voted but not found, skipping")
                 continue
-            user_list.append(user_map.get(user_id))
-
+            user_list.append(self.users.get(user_id))
         return favourite_colour, user_list

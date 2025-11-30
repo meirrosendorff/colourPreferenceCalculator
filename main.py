@@ -31,6 +31,6 @@ if __name__ == "__main__":
 
     calculator = FavouriteCalculator(user_file, favourites_file)
 
-    favourite_colour, user_list = calculator.calculate_favourite_colour(calculator.users, calculator.favourite_choices)
+    favourite_colour, user_list = calculator.calculate_favourite_colour()
     sort_user_list(user_list)
     print_result(favourite_colour, user_list)
